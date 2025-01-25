@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Squid Game Registration</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div id="navbar" class="navbar">
+        <button class="close-btn" onclick="toggleNavbar()">×</button>
+        <h2>Menu</h2>
+        <a href="#">Home</a>
+        <a href="#">Events</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- Open Navbar Button -->
+    <button class="open-navbar-btn" onclick="toggleNavbar()">☰ Menu</button>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="container">
+            <h1>Registration</h1>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="event">Event:</label>
+                    <select id="event" name="event" required>
+                        <option value="event1">Event 1</option>
+                        <option value="event2">Event 2</option>
+                        <option value="event3">Event 3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="teamName">Team Name:</label>
+                    <input type="text" id="teamName" name="teamName" placeholder="Enter team name" required />
+                </div>
+                <div class="form-group">
+                    <label for="teamLeader">Team Leader:</label>
+                    <input type="text" id="teamLeader" name="teamLeader" placeholder="Enter team leader" required />
+                </div>
+                <div class="form-group">
+                    <label for="phoneNo">Phone Number:</label>
+                    <input type="tel" id="phoneNo" name="phoneNo" placeholder="Enter phone number" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter email" required />
+                </div>
+                <div class="form-group">
+                    <label for="rollNo">Roll Number:</label>
+                    <input type="tel" id="rollNo" name="rollNo" placeholder="Enter roll number" required />
+                </div>
+
+                <div id="membersContainer" class="form-group">
+                    <label>Team Members:</label>
+                    <input type="text" name="memberName" placeholder="Member 1 Name" required />
+                    <input type="text" name="memberName" placeholder="Member 2 Name" required />
+                    <input type="text" name="memberName" placeholder="Member 3 Name" required />
+                </div>
+
+                <button type="button" class="add-btn" onclick="addMember()">Add Member</button>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>        
+        </div>
+    </div>
+
+    <script>
+        // Toggle Navbar visibility
+        function toggleNavbar() {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('open');
+        }
+
+        // Add new member input
+        function addMember() {
+            const membersList = document.getElementById('membersContainer');
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.name = 'memberName';
+            input.placeholder = 'Enter member name';
+            input.style = 'width: 100%; padding: 10px; font-size: 16px; border: none; border-radius: 5px; background: rgba(255, 255, 255, 0.15); color: white; margin-top: 10px;';
+            membersList.appendChild(input);
+        }
+    </script>
+
+</body>
+</html>

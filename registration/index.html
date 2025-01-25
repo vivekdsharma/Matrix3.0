@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Cards</title>
+    <header class="navbar">
+
+
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+
+        <nav class="nav-links">
+            <a href="#home" class="roboto">Home</a>
+            <a href="#events" class="roboto">Events</a>
+            <a href="#sponsors" class="roboto">Sponsors</a>
+            <a href="#contact" class="roboto">Contact Us</a>
+        </nav>
+    </header>
+
+<style>
+    /* Navbar */
+    .navbar {
+        width: 100%;
+        height: 55px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 15px;
+        z-index: 10;
+        border-bottom: 3.5px solid #9E2228;
+    }
+
+    .navbar .logo img {
+        height: 50px;
+        position: absolute;
+        left: 5px;
+        top: 5px;
+    }
+
+    .roboto {
+        text-decoration: none;
+        font-family: 'roboto';
+        font-size: 25px;
+        color: #fff;
+    }
+
+    .navbar .nav-links {
+        display: flex;
+        gap: 20px;
+        padding-right: 15px;
+    }
+
+    .navbar .nav-links :hover {
+        transform: scale(1.2);
+        transition: 0.5s;
+    }
+
+    /* General Styles */
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url('bg.jpg');
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    /* Container */
+    .container {
+        display: flex;
+        gap: 20px;
+        position: absolute;
+        top: 200px;
+    }
+
+    .card {
+        width: 150px;
+        height: 250px;
+        background-image: url("image.png");
+        background-size: cover;
+        border-radius: 0px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Card Hover */
+    #div1,
+    #div2,
+    #div3 {
+        transition: transform 0.3s ease;
+        /* Smooth transition */
+    }
+
+    #div1:hover,
+    #div2:hover,
+    #div3:hover {
+        transform: translateY(-10px) scale(1.2);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Modal Styles */
+    #modal1,
+    #modal2,
+    #modal3 {
+        display: none;
+        position: fixed;
+        top: 12%;
+        width: 25%;
+        height: 75%;
+        background-image: url('rb.jpg');
+        background-size: cover;
+        align-items: center;
+        z-index: 1000;
+        width: 280px;
+    }
+
+    #modal1 {
+        left: 10%;
+    }
+
+    #modal2 {
+        left: 37%;
+    }
+
+    #modal3 {
+        left: 67%;
+    }
+
+    #modal1:target,
+    #modal2:target,
+    #modal3:target {
+        display: flex;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Mobile & Tablet Responsive Styles */
+    @media (max-width: 768px) {
+
+        /* Navbar adjustments for mobile */
+        .navbar {
+            height: 50px;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .navbar .logo img {
+            height: 40px;
+            position: static;
+            margin-left: 10px;
+        }
+
+        .navbar .nav-links {
+            flex-direction: column;
+            gap: 15px;
+            padding-right: 0;
+            margin-top: 10px;
+        }
+
+        .navbar .nav-links a {
+            font-size: 20px;
+        }
+
+        /* Adjust container layout for mobile */
+        .container {
+            flex-direction: column;
+            gap: 15px;
+            top: 150px;
+        }
+
+        /* Adjust card sizes */
+        .card {
+            width: 100%;
+            height: 200px;
+            background-size: contain;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Adjust modals */
+        #modal1,
+        #modal2,
+        #modal3 {
+            width: 80%;
+            height: 60%;
+            top: 10%;
+        }
+    }
+
+    /* Extra small devices (phones in portrait mode) */
+    @media (max-width: 480px) {
+
+        /* Navbar adjustments for extra small screens */
+        .navbar {
+            height: 45px;
+            flex-direction: column;
+        }
+
+        .navbar .logo img {
+            height: 35px;
+        }
+
+        .navbar .nav-links a {
+            font-size: 18px;
+        }
+
+        /* Adjust card layout for smaller screens */
+        .container {
+            top: 100px;
+        }
+
+        .card {
+            width: 100%;
+            height: 180px;
+            background-size: cover;
+        }
+
+        /* Adjust modal layout */
+        #modal1,
+        #modal2,
+        #modal3 {
+            width: 90%;
+            height: 60%;
+            top: 10%;
+        }
+
+        /* Make the background image cover the entire screen */
+        body {
+            background-size: contain;
+        }
+    }
+</style>
+
+
+</head>
+<body>
+    <!-- Cards -->
+    <div class="container">
+        <a href="#modal1" class="card" id="div1">
+            
+        </a>
+        <a href="#modal2" class="card" id="div2">
+            
+        </a>
+        <a href="#modal3" class="card" id="div3">
+            
+        </a>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-btn">&times;</a>
+            
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-btn">&times;</a>
+            
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-btn">&times;</a>
+            
+        </div>
+    </div>
+    <div class="matrix">
+        <img src="matrix.png" alt="matrix">
+    </div>
+    <style>
+        .matrix img{
+           
+           
+            width:400px;
+            position: absolute;
+            top: 550px;
+            left: 450px;
+            
+        }
+    </style>
+</body>
+
+
+
+
+<script>
+    // Select all the divs
+    const div1 = document.getElementById('div1');
+    const div2 = document.getElementById('div2');
+    const div3 = document.getElementById('div3');
+
+   
+    const divs = [div1, div2, div3];
+    divs.forEach(div => {
+        div.addEventListener('click', () => {
+          
+            div1.classList.add('moved-left');
+
+            div2.classList.add('getdown');
+           
+            div3.classList.add('moved-right');
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
